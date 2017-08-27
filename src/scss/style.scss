@@ -1,3 +1,74 @@
 body {
-  background: red;
+  background: grey;
+  color: #fff;
+  font-family: 'Open Sans';
+}
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: red;
+  text-align: center;
+  font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  font-size: 65px;
+}
+
+
+.anagramButton {
+  position: relative;
+  top: 20px;
+  background: orange;
+  border: 2px solid blue;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 20px;
+  width: 200px;
+  height: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s;
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+
+button:hover {
+  background-color: orange;
+  color: #000;
+  cursor: pointer;
+  border: 10px solid orange;
+}
+
+button:focus {
+  outline: none;
+}
+
+#timer {
+  color: #E63232;
+  font-family: 'Open Sans';
+  position: relative;
+  font-size: 50px;
+  bottom: 120px;
+  padding: 0;
+  float:right;
+}
+
+
+#currentWord {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 3px;;
+  bottom: 60px;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 100px;
+
+}
+
+#answerButtons {
+  margin-left: 80px;
 }
