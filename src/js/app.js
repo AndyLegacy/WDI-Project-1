@@ -2,12 +2,12 @@ $(() => {
   console.log('im still here bro');
   (function(wordString){
 
-    function Glossary(words) {
+    function glossary(words) {
       this.words = words;
       this.length = this.words.length;
     }
 
-    const glossaryProto = Glossary.prototype;
+    const glossaryProto = glossary.prototype;
 
     glossaryProto.randWord = function() {
       return this.words[Math.floor(Math.random() * this.length)];
@@ -16,7 +16,7 @@ $(() => {
     glossaryProto.removeWord = function(word) {
       const index = this.words.indexOf(word);
       this.words.splice(index, 1);
-      this.updateWordCount;
+
     };
 
     glossaryProto.updateWordCount = function () {
@@ -27,24 +27,22 @@ $(() => {
 
     const game = {};
 
-    game.currentWord = document.getElementById('CurrentWord');
+    game.currentWord = document.getElementById('currentWord');
 
     game.timer = document.getElementById('timer');
 
-    game.buttons = document.getElementByClassName('anagramButton');
+    game.buttons = document.getElementByClassName('#anagramButton');
 
-    game.resetButton = document.getElementById('resetButton');
+    game.resetButton = document.getElementByClass('#reset');
+
+    game.start = document.getElementByClassName('#startGame');
 
     game.correctButton = null;
-
-    game.currentGlossary = null;
-
-    game.scoreNum = 0;
 
     game.millsecondsLeft = 500;
 
     game.glossary = {
-      gameWords: new Glossary([
+      gameWords: new glossary([
         'aeon', 'aero', 'back', 'bang', 'been', 'bell', 'bios',
         'blog', 'blot', 'bots', 'cafe', 'come', 'edgy', 'fold',
         'from', 'good', 'have', 'here', 'howl', 'just', 'know',
@@ -56,8 +54,8 @@ $(() => {
 
     };
 
-    game.GetCorrectChoice = function(word) {
-      let output;
+    game.getCorrectChoice = function(word) {
+      var output;
 
       do {
         output = wordString.shuffle(word);
@@ -77,7 +75,7 @@ $(() => {
 
     game.removePrevWord = function () {
       const prevWord = this.currentWord.innerHTML;
-      this.Glossary.removeWord(prevWord);
+      this.glossary.removeWord(prevWord);
     };
 
     game.updateWord = function() {
@@ -161,9 +159,7 @@ $(() => {
 
 
 
-
-
-  })(wordString);
+  });
 
 
 
