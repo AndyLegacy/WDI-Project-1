@@ -36,7 +36,7 @@ $(() => {
   const $resetButton = $('#reset');
   const $timer = $('#timer');
   const $currentWord = $('#currentWord');
-  const $anagramButton = $('.anagramButton');
+  const $anagramButtons = $('.anagramButton');
   const $answerButtons = $('#answerButtons');
 
 
@@ -95,22 +95,72 @@ $(() => {
   }
 
   const randWord = glossary.randWord();
-  const shuffledWord = shuffle(randWord.split('')).join('');
-  $currentWord.html(shuffledWord);
-  console.log(shuffledWord, randWord);
+  const shuffledWords = [];
+
+  while(shuffledWords.length < 4) {
+    const shuffledWord = shuffle(randWord.split('')).join('');
+    if(!shuffledWords.includes(shuffledWord)) shuffledWords.push(shuffledWord);
   }
 
+  // setting the current word to be the last element in the shuffled words array + removing it from the array
+  $currentWord.html(shuffledWords.pop());
+  const wrongAnswers = [0,1,2];
+  const randomIndex2 = Math.Floor(Math.random() * 4);
+  wrongAnswers.splice(randomIndex2, 3);
+  const $wrongButtons = $anagramButtons.eq(randomIndex2);
+  $wrongButtons.html(shuffledWord);
+
+
+
+
+  // array of possible button indexs
+  const possibleButtons = [0,1,2,3];
+  // pick one index out of array of possible button indexs
+  const randomIndex = Math.floor(Math.random() * 4);
+  // remove that chosen index from the array so that it can't be picked again
+  possibleButtons.splice(randomIndex, 1);
+
+  // set the html of one button to be the correct answer
+  const $correctButton = $anagramButtons.eq(randomIndex);
+  $correctButton.html(randWord);
+
+  // shuffledWords is an array of 3 shuffled words
+  // possibleButtons is an array containing the 3 remaining indexes of the empty buttons [0,2,3]
+  // looping through each possible button, and setting the html to be one of the remaining shuffled words
+  // forEach, for loop
+
+  // console.log(correctButton);
+
+  // for (let i = 0; i < 4; i++) {
+  //   shuffledArray.push(shuffle(randWord.split('')).join(''));
+  //
+  //   $anagramButtons.html(shuffledArray[i]);
+  // }
+
+
+
   //  pick a random button from the anagramButton array, and set the text to be the correct answer
- 
+
+  // const randButton = $anagramButtons.splice($anagramButtons.indexOf(randWord), );
+  // $anagramButtons.html(randButton);
+  // //
+  // //
+  // //
+
+//
+
+// scramble the correct word another 3 times for other 3 buttons
+//
+// function shuffles (){
+// const shuffledArray = [0,1,2,3];
+// for (let i = 0; i < 4, i++);{
+// shuffledArray.push(shuffle(randWord.split('')).join(''));
+//
+//  $anagramButtons.html(shuffledArray[i]);
+// //
 
 
-
-  //   var answerButtons = answersButtons[Math.floor(Math.random()*answerButtons.length)];
-  //   // scramble the correct word another 3 times for other 3 buttons
-  //
-  //
-  //
-  //
-  //
-  //
+//
+//
+//
 });
