@@ -104,25 +104,17 @@ $(() => {
 
   // setting the current word to be the last element in the shuffled words array + removing it from the array
   $currentWord.html(shuffledWords.pop());
-  const wrongAnswers = [0,1,2];
-  const randomIndex2 = Math.Floor(Math.random() * 4);
-  wrongAnswers.splice(randomIndex2, 3);
-  const $wrongButtons = $anagramButtons.eq(randomIndex2);
-  $wrongButtons.html(shuffledWord);
-
-
-
-
-  // array of possible button indexs
-  const possibleButtons = [0,1,2,3];
   // pick one index out of array of possible button indexs
   const randomIndex = Math.floor(Math.random() * 4);
   // remove that chosen index from the array so that it can't be picked again
-  possibleButtons.splice(randomIndex, 1);
 
   // set the html of one button to be the correct answer
   const $correctButton = $anagramButtons.eq(randomIndex);
   $correctButton.html(randWord);
+
+  $anagramButtons.each((i, button) => {
+    if(!$(button).html()) $(button).html(shuffledWords.pop());
+  });
 
   // shuffledWords is an array of 3 shuffled words
   // possibleButtons is an array containing the 3 remaining indexes of the empty buttons [0,2,3]
