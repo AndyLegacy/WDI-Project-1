@@ -33,11 +33,12 @@ $(() => {
 
   // cache your DOM elements (start button, reset button, timer, currentWord, anagramButton) using jQuery
   const $startGame = $('.startGame');
-  const $resetButton = $('#reset');
+  // const $resetButton = $('#reset');
   const $timer = $('#timer');
   const $currentWord = $('#currentWord');
   const $anagramButtons = $('.anagramButton');
-  const $answerButtons = $('#answerButtons');
+  // const $answerButtons = $('#answerButtons');
+  const $score = $('#score');
 
 
   // get timer working on click of start button, get it to stop at 0, console log game over
@@ -95,7 +96,7 @@ $(() => {
   }
 
   const randWord = glossary.randWord();
-  const shuffledWords = [];
+  let shuffledWords = [];
 
   while(shuffledWords.length < 4) {
     const shuffledWord = shuffle(randWord.split('')).join('');
@@ -116,43 +117,33 @@ $(() => {
     if(!$(button).html()) $(button).html(shuffledWords.pop());
   });
 
-  // shuffledWords is an array of 3 shuffled words
-  // possibleButtons is an array containing the 3 remaining indexes of the empty buttons [0,2,3]
-  // looping through each possible button, and setting the html to be one of the remaining shuffled words
-  // forEach, for loop
+  let newScore = 0;
+  $anagramButtons.on('click', (e) => {
 
-  // console.log(correctButton);
+    const buttonPoint = $(e.target).html();
+    if (buttonPoint === randWord){
+      newScore++;
+      console.log(newScore);
+      $score.html(newScore);
+      console.log('itWorks');
+      // shuffle();        /*find right array*/
+      shuffledWords = [];
+    } else {
+      console.log('lose');
 
-  // for (let i = 0; i < 4; i++) {
-  //   shuffledArray.push(shuffle(randWord.split('')).join(''));
-  //
-  //   $anagramButtons.html(shuffledArray[i]);
-  // }
+    }
 
-
-
-  //  pick a random button from the anagramButton array, and set the text to be the correct answer
-
-  // const randButton = $anagramButtons.splice($anagramButtons.indexOf(randWord), );
-  // $anagramButtons.html(randButton);
-  // //
-  // //
-  // //
-
-//
-
-// scramble the correct word another 3 times for other 3 buttons
-//
-// function shuffles (){
-// const shuffledArray = [0,1,2,3];
-// for (let i = 0; i < 4, i++);{
-// shuffledArray.push(shuffle(randWord.split('')).join(''));
-//
-//  $anagramButtons.html(shuffledArray[i]);
-// //
+  });
 
 
-//
-//
-//
+
+
+
+
+
+
+
+
+
+
 });
