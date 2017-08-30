@@ -66,6 +66,18 @@ button:focus {
 
 }
 
-#answerButtons {
-  margin-left: 220px;
+#lossScreen{
+border: 2px black solid;
+display:none;
+}
+
+#winScreen {
+  border: 2px black solid;
+  display:none;
+
+
+}
+
+.hidden {
+  display:none;
 }

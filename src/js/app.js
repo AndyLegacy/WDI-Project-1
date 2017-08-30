@@ -44,8 +44,9 @@ $(() => {
   const $anagramButtons = $('.anagramButton');
   // const $answerButtons = $('#answerButtons');
   const $score = $('#score');
-  const $loseScreen = $('#lossScreen'); //hidden until activated
-  const $WinScreen = $('#winScreen'); // hiden until activated
+  const $lossScreen = $('#lossScreen'); //hidden until activated
+  const $winScreen = $('#winScreen'); // hidden until activated
+  const $reset = $('#reset');
 
 
 
@@ -72,10 +73,9 @@ $(() => {
     if (timeRemaining === 0) {
       clearInterval(timerid);
       timerIsRunning = false;
-      $timer.addClass('ringing');
+      $lossScreen.show('slow');
     } else {
       timeRemaining = parseFloat((timeRemaining - 0.01).toFixed(2));
-      console.log('You Lose!');
       $timer.html(timeRemaining.toFixed(2));
     }
   }
@@ -141,15 +141,27 @@ $(() => {
     const buttonPoint = $(e.target).html();
     if (buttonPoint === randWord){
       newScore++;
-      console.log(newScore);
       $score.html(newScore);
-      console.log('itWorks');
       setRound();
+      if (newScore === 2) winGame();
+      if (newScore === 2) clearInterval(timerid);
+      if (newScore) timeRemaining = 5;
     } else {
-      console.log('lose');
-
+      // $lossScreen.show('slow');
     }
 
+    function winGame() {
+
+      $winScreen.show('slow');
+    }
+
+    // $reset.on('click', () => {
+    //   console.log('click');
+    //   newScore = 0;
+    //
+    // 
+    // }
+    //
 
 
   });
