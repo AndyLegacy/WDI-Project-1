@@ -43,9 +43,10 @@ $(() => {
   const $currentWord = $('#currentWord');
   const $anagramButtons = $('.anagramButton');
   // const $answerButtons = $('#answerButtons');
+  const $winLose= $('.winLose');
   const $score = $('#score');
-  const $lossScreen = $('#lossScreen'); //hidden until activated
-  const $winScreen = $('#winScreen'); // hidden until activated
+  // const $lossScreen = $('#lossScreen'); //hidden until activated
+  // const $winScreen = $('#winScreen'); // hidden until activated
   const $reset = $('#reset');
 
 
@@ -63,6 +64,7 @@ $(() => {
       timerIsRunning = true;
       timerid = setInterval(countDown, 10);
       console.log(timeRemaining);
+
     } else {
       timerIsRunning = false;
       clearInterval(timerid);
@@ -73,7 +75,9 @@ $(() => {
     if (timeRemaining === 0) {
       clearInterval(timerid);
       timerIsRunning = false;
-      $lossScreen.show('slow');
+      $winLose.css('visibility', 'visible');
+      $reset.css('visibility', 'inherit');
+      $winLose.text('You Lose!!!!');
     } else {
       timeRemaining = parseFloat((timeRemaining - 0.01).toFixed(2));
       $timer.html(timeRemaining.toFixed(2));
@@ -147,21 +151,34 @@ $(() => {
       if (newScore === 2) clearInterval(timerid);
       if (newScore) timeRemaining = 5;
     } else {
-      // $lossScreen.show('slow');
+      $winLose.css('visibility', 'visible');
+      $reset.css('visibility', 'inherit');
+      $winLose.text('You Lose!!!!');
+
+
     }
 
     function winGame() {
 
-      $winScreen.show('slow');
+      $winLose.css('visibility', 'visible');
+      $reset.css('visibility', 'inherit');
+      $winLose.text('Congratulations! You Win!!');
     }
 
-    // $reset.on('click', () => {
-    //   console.log('click');
-    //   newScore = 0;
-    //
-    // 
-    // }
-    //
+    $reset.on('click', () => {
+      console.log('click');
+      newScore = null;
+      clearInterval(timerid);
+      $timer.html(parseFloat(0).toFixed(2));
+      $winLose.text('');
+
+      setRound();
+
+
+
+
+    });
+
 
 
   });

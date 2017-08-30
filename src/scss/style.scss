@@ -66,18 +66,15 @@ button:focus {
 
 }
 
-#lossScreen{
-border: 2px black solid;
-display:none;
-}
-
-#winScreen {
-  border: 2px black solid;
-  display:none;
-
-
-}
 
 .hidden {
   display:none;
+}
+
+#winLose{
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  border: 1px solid black;
+  visibility: collapse;
 }
