@@ -22,13 +22,18 @@ $(() => {
   };
 
   const glossary = new Glossary([
-    'adept', 'aphid', 'aphis', 'apoda', 'apsis', 'arena', 'argon',
-    'argus', 'aroph', 'aster', 'augur', 'aurin', 'baric', 'bathe',
-    'being', 'beroe', 'chair', 'chart', 'cheer', 'cilia', 'cloud',
+    'adept', 'aphid', 'signature', 'computer', 'alphabet', 'arena', 'argon',
+    'satellite', 'backpack', 'aster', 'augur', 'leather', 'passport', 'bathe',
+    'being', 'guitar', 'chair', 'chart', 'cheer', 'cilia', 'cloud',
     'death', 'delph', 'devil', 'evade', 'exode', 'exult', 'farse',
-    'fever', 'flesh', 'flock', 'hepar', 'hexad', 'hocco', 'homer',
-    'houri', 'lumen', 'lymph', 'phono', 'photo', 'rheic', 'rhein',
-    'rogue', 'romic', 'rosin', 'rouge', 'scrat', 'screw', 'sense'
+    'fever', 'flesh', 'flock', 'diamond', 'kaleidoscope', 'balloon', 'homer',
+    'barbecue', 'lumen', 'lymph', 'phono', 'photo', 'coffee', 'telescope',
+    'rogue', 'restaurant', 'rosin', 'bible', 'bridge', 'screw', 'sense', 'racquet','torpedo', 'weapon',
+    'stomach','tapestry', 'thermometer', 'pyramid', 'pendulum', 'microscope', 'liquid', 'hieroglyph', 'eraser',
+    'cappuccino','asphyxiate','expect', 'expected','rhythm', 'rhyme', 'cemetary', 'indict', 'embarass', 'hijinks',
+    'ensued','synonym','development','indices','disembogue', 'vernacular','recommend', 'occurred','psychiatrist','definite',
+    'illicit', 'fluorescent', 'ennui','phlegm','feign','chliche', 'typhoon','eucalyptus','bugles','pneumonia',
+    'pneumatic', 'jubilant','canoe','hullabaloo','coercion', 'aurae',	'odious','idleness','tortoise'
   ]);
 
   // cache your DOM elements (start button, reset button, timer, currentWord, anagramButton) using jQuery
@@ -39,6 +44,10 @@ $(() => {
   const $anagramButtons = $('.anagramButton');
   // const $answerButtons = $('#answerButtons');
   const $score = $('#score');
+  const $loseScreen = $('#lossScreen'); //hidden until activated
+  const $WinScreen = $('#winScreen'); // hiden until activated
+
+
 
 
   // get timer working on click of start button, get it to stop at 0, console log game over
@@ -66,6 +75,7 @@ $(() => {
       $timer.addClass('ringing');
     } else {
       timeRemaining = parseFloat((timeRemaining - 0.01).toFixed(2));
+      console.log('You Lose!');
       $timer.html(timeRemaining.toFixed(2));
     }
   }
@@ -95,29 +105,37 @@ $(() => {
     return array;
   }
 
-  const randWord = glossary.randWord();
-  let shuffledWords = [];
+  let randWord = null;
+  function setRound() {
+    randWord = glossary.randWord();
+    const shuffledWords = [];
 
-  while(shuffledWords.length < 4) {
-    const shuffledWord = shuffle(randWord.split('')).join('');
-    if(!shuffledWords.includes(shuffledWord)) shuffledWords.push(shuffledWord);
+    $anagramButtons.html('');
+
+    while(shuffledWords.length < 4) {
+      const shuffledWord = shuffle(randWord.split('')).join('');
+      if(!shuffledWords.includes(shuffledWord)) shuffledWords.push(shuffledWord);
+    }
+
+    // setting the current word to be the last element in the shuffled words array + removing it from the array
+    $currentWord.html(shuffledWords.pop());
+    // pick one index out of array of possible button indexs
+    const randomIndex = Math.floor(Math.random() * 4);
+    // remove that chosen index from the array so that it can't be picked again
+
+    // set the html of one button to be the correct answer
+    const $correctButton = $anagramButtons.eq(randomIndex);
+    $correctButton.html(randWord);
+
+    $anagramButtons.each((i, button) => {
+      if(!$(button).html()) $(button).html(shuffledWords.pop());
+    });
   }
 
-  // setting the current word to be the last element in the shuffled words array + removing it from the array
-  $currentWord.html(shuffledWords.pop());
-  // pick one index out of array of possible button indexs
-  const randomIndex = Math.floor(Math.random() * 4);
-  // remove that chosen index from the array so that it can't be picked again
-
-  // set the html of one button to be the correct answer
-  const $correctButton = $anagramButtons.eq(randomIndex);
-  $correctButton.html(randWord);
-
-  $anagramButtons.each((i, button) => {
-    if(!$(button).html()) $(button).html(shuffledWords.pop());
-  });
+  setRound();
 
   let newScore = 0;
+  //shuffle(); //CANNOT CALL FUNCTION HERE- doesnt accept argument either- dear javascript what will you accept? how about a fiver?
   $anagramButtons.on('click', (e) => {
 
     const buttonPoint = $(e.target).html();
@@ -126,12 +144,13 @@ $(() => {
       console.log(newScore);
       $score.html(newScore);
       console.log('itWorks');
-      // shuffle();        /*find right array*/
-      shuffledWords = [];
+      setRound();
     } else {
       console.log('lose');
 
     }
+
+
 
   });
 
