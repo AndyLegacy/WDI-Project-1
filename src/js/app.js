@@ -34,7 +34,9 @@ $(() => {
     'ensued','synonym','development','indices','disembogue', 'vernacular','recommend', 'occurred','psychiatrist','definite',
     'illicit', 'fluorescent', 'ennui','phlegm','feign','chliche', 'typhoon','eucalyptus','bugles','pneumonia',
     'pneumatic', 'jubilant','canoe','hullabaloo','coercion', 'aurae',	'odious','idleness','tortoise', 'elude', 'proconsul','simian',
-    'tarsier','trailing', 'tiling'
+    'tarsier','trailing', 'tiling', 'conquer', 'vanquish', 'subdue', 'annihilate', 'ascend', 'subjugate', 'coxis', 'hernia', 'serratus', 'anterior',
+    'posterior', 'rearward', 'canthus', 'glabella'
+
   ]);
 
   // cache your DOM elements (start button, reset button, timer, currentWord, anagramButton) using jQuery
@@ -71,6 +73,8 @@ $(() => {
       $anagramButtons.show('fast');
       $rules.hide('fast');
       $timer.show('fast');
+      $reset.hide('fast');
+      $startGame.hide('fast');
 
 
 
@@ -85,9 +89,9 @@ $(() => {
       clearInterval(timerid);
       timerIsRunning = false;
       $winLose.css('visibility', 'visible');
-      $reset.css('visibility', 'inherit');
       $winLose.text('You Lose!!!!');
       $timer.hide('fast');
+      $reset.show('fast');
       $currentWord.hide('fast');
       $anagramButtons.hide('fast');
 
@@ -170,6 +174,7 @@ $(() => {
       $timer.hide('fast');
       $currentWord.hide('fast');
       $anagramButtons.hide('fast');
+      $reset.show('fast');
 
 
     }
@@ -186,6 +191,7 @@ $(() => {
       $anagramButtons.hide('fast');
       $timer.hide('fast');
       timeRemaining = 5;
+      $startGame.show('fast');
       setRound();
 
       console.log(timerIsRunning);
@@ -205,6 +211,7 @@ $(() => {
     $timer.hide('fast');
     $currentWord.hide('fast');
     $anagramButtons.hide('fast');
+    $reset.show('fast');
   }
 
   $reset.on('click', () => {
@@ -217,6 +224,7 @@ $(() => {
     $rules.show('fast');
     $currentWord.hide('fast');
     $anagramButtons.hide('fast');
+    $reset.hide('fast');
     $timer.hide('fast');
     timeRemaining = 5;
     setRound();
