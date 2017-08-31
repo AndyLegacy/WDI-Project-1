@@ -10,16 +10,6 @@ $(() => {
   Glossary.prototype.randWord = function() {
     return this.words[Math.floor(Math.random() * this.length)];
   };
-  // //removes current word from the gloassay of words
-  // Glossary.prototype.removeWord = function(word) {
-  //   const index = this.words.indexOf(word);
-  //   this.words.splice(index, 1);
-
-  // };
-  // //updates glossary of word how many words left
-  // Glossary.prototype.updateWordCount = function () {
-  //   this.length = this.words.length;
-  // };
 
   const glossary = new Glossary([
     'adept', 'aphid', 'signature', 'computer', 'alphabet', 'arena', 'argon',
@@ -41,23 +31,16 @@ $(() => {
 
   // cache your DOM elements (start button, reset button, timer, currentWord, anagramButton) using jQuery
   const $startGame = $('.startGame');
-  // const $resetButton = $('#reset');
   const $timer = $('#timer');
   const $currentWord = $('#currentWord');
   const $anagramButtons = $('.anagramButton');
-  // const $answerButtons = $('#answerButtons');
   const $winLose= $('.winLose');
   const $score = $('#score');
-  // const $lossScreen = $('#lossScreen'); //hidden until activated
-  // const $winScreen = $('#winScreen'); // hidden until activated
   const $reset = $('#reset');
   console.log($reset);
   const $rules = $('#rules');
 
 
-
-
-  // get timer working on click of start button, get it to stop at 0, console log game over
   let timeRemaining = 5;
   let timerIsRunning = false;
   let timerid = null;
