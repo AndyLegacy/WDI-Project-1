@@ -33,7 +33,8 @@ $(() => {
     'cappuccino','asphyxiate','expect', 'expected','rhythm', 'rhyme', 'cemetary', 'indict', 'embarass', 'hijinks',
     'ensued','synonym','development','indices','disembogue', 'vernacular','recommend', 'occurred','psychiatrist','definite',
     'illicit', 'fluorescent', 'ennui','phlegm','feign','chliche', 'typhoon','eucalyptus','bugles','pneumonia',
-    'pneumatic', 'jubilant','canoe','hullabaloo','coercion', 'aurae',	'odious','idleness','tortoise'
+    'pneumatic', 'jubilant','canoe','hullabaloo','coercion', 'aurae',	'odious','idleness','tortoise', 'elude', 'proconsul','simian',
+    'tarsier','trailing', 'tiling'
   ]);
 
   // cache your DOM elements (start button, reset button, timer, currentWord, anagramButton) using jQuery
@@ -48,6 +49,8 @@ $(() => {
   // const $lossScreen = $('#lossScreen'); //hidden until activated
   // const $winScreen = $('#winScreen'); // hidden until activated
   const $reset = $('#reset');
+  console.log($reset);
+  const $rules = $('#rules');
 
 
 
@@ -64,6 +67,12 @@ $(() => {
       timerIsRunning = true;
       timerid = setInterval(countDown, 10);
       console.log(timeRemaining);
+      $currentWord.show('fast');
+      $anagramButtons.show('fast');
+      $rules.hide('fast');
+      $timer.show('fast');
+
+
 
     } else {
       timerIsRunning = false;
@@ -78,6 +87,10 @@ $(() => {
       $winLose.css('visibility', 'visible');
       $reset.css('visibility', 'inherit');
       $winLose.text('You Lose!!!!');
+      $timer.hide('fast');
+      $currentWord.hide('fast');
+      $anagramButtons.hide('fast');
+
     } else {
       timeRemaining = parseFloat((timeRemaining - 0.01).toFixed(2));
       $timer.html(timeRemaining.toFixed(2));
@@ -147,38 +160,68 @@ $(() => {
       newScore++;
       $score.html(newScore);
       setRound();
-      if (newScore === 2) winGame();
-      if (newScore === 2) clearInterval(timerid);
+      if (newScore === 10) winGame();
+      if (newScore === 10) clearInterval(timerid);
       if (newScore) timeRemaining = 5;
     } else {
       $winLose.css('visibility', 'visible');
       $reset.css('visibility', 'inherit');
       $winLose.text('You Lose!!!!');
+      $timer.hide('fast');
+      $currentWord.hide('fast');
+      $anagramButtons.hide('fast');
 
 
-    }
-
-    function winGame() {
-
-      $winLose.css('visibility', 'visible');
-      $reset.css('visibility', 'inherit');
-      $winLose.text('Congratulations! You Win!!');
     }
 
     $reset.on('click', () => {
       console.log('click');
       newScore = null;
+      $score.html('Score');
       clearInterval(timerid);
       $timer.html(parseFloat(0).toFixed(2));
       $winLose.text('');
-
+      $rules.show('fast');
+      $currentWord.hide('fast');
+      $anagramButtons.hide('fast');
+      $timer.hide('fast');
+      timeRemaining = 5;
       setRound();
 
-
+      console.log(timerIsRunning);
 
 
     });
 
+
+
+  });
+
+  function winGame() {
+
+    $winLose.css('visibility', 'visible');
+    $reset.css('visibility', 'inherit');
+    $winLose.text('Congratulations! You Win!!');
+    $timer.hide('fast');
+    $currentWord.hide('fast');
+    $anagramButtons.hide('fast');
+  }
+
+  $reset.on('click', () => {
+    console.log('click');
+    newScore = null;
+    $score.html('Score');
+    clearInterval(timerid);
+    $timer.html(parseFloat(0).toFixed(2));
+    $winLose.text('');
+    $rules.show('fast');
+    $currentWord.hide('fast');
+    $anagramButtons.hide('fast');
+    $timer.hide('fast');
+    timeRemaining = 5;
+    setRound();
+
+    console.log(timerIsRunning);
 
 
   });

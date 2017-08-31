@@ -1,5 +1,5 @@
 body {
-  background: grey;
+  background: black;
   color: #fff;
   font-family: 'Open Sans';
 }
@@ -10,7 +10,7 @@ body {
 }
 
 h1 {
-  color: black;
+  color: #00C400;
   text-align: center;
   font-weight: lighter;
   text-transform: uppercase;
@@ -18,11 +18,17 @@ h1 {
   font-size: 65px;
 }
 
+h2 {
+  text-align: center;
+  color: #00C400;
+  margin-top: 75px;
+}
+
 
 .anagramButton {
   position: relative;
-  background: orange;
-  border: 2px solid blue;
+  background: #00C400;
+  border: 2px solid black;
   border-radius: 2px;
   color: #fff;
   font-size: 20px;
@@ -33,7 +39,11 @@ h1 {
   transition: all 0.3s;
   margin-bottom: 20px;
   margin-top: 100px;
+  display: none;
+
 }
+
+
 
 button:hover {
   background-color: orange;
@@ -50,8 +60,9 @@ button:focus {
   color: #E63232;
   font-family: 'Open Sans';
   position: relative;
-  font-size: 50px;
+  font-size: 75px;
   padding: 0;
+  text-align: center;;
 }
 
 
@@ -63,18 +74,55 @@ button:focus {
   font-size: 50px;
   text-align: center;
   margin-top: 100px;
+  display: none;
+  margin-top: 40px
 
 }
 
-
-.hidden {
-  display:none;
-}
 
 #winLose{
-  width: 100%;
-  height: 200px;
+  width: 500px;
+  height:300px;
   text-align: center;
-  border: 1px solid black;
-  visibility: collapse;
+  visibility: hidden;
+  font-size: 50px;
+  margin-top:40px;
+  margin-left: 400px;
+  border-radius: 5px;
+
+
+}
+
+#rules {
+  border: 2px solid black;
+}
+
+.startGame {
+  position: relative;
+  background: #00C400;
+  border: 2px solid black;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 10px;
+  width: 100px;
+  height: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+
+}
+
+#reset {
+  position: relative;
+  background: #00C400;
+  border: 2px solid black;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 10px;
+  width: 100px;
+  height: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+
 }
