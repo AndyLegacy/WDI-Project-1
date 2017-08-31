@@ -95,6 +95,7 @@ $(() => {
       $currentWord.hide('fast');
       $anagramButtons.hide('fast');
 
+
     } else {
       timeRemaining = parseFloat((timeRemaining - 0.01).toFixed(2));
       $timer.html(timeRemaining.toFixed(2));
@@ -179,25 +180,26 @@ $(() => {
 
     }
 
-    $reset.on('click', () => {
-      console.log('click');
-      newScore = null;
-      $score.html('Score');
-      clearInterval(timerid);
-      $timer.html(parseFloat(0).toFixed(2));
-      $winLose.text('');
-      $rules.show('fast');
-      $currentWord.hide('fast');
-      $anagramButtons.hide('fast');
-      $timer.hide('fast');
-      timeRemaining = 5;
-      $startGame.show('fast');
-      setRound();
-
-      console.log(timerIsRunning);
-
-
-    });
+    // $reset.on('click', () => {
+    //   console.log('click');
+    //   newScore = null;
+    //   $score.html('Score');
+    //   clearInterval(timerid);
+    //   $timer.html(parseFloat(0).toFixed(2));
+    //   $winLose.text('');
+    //   $rules.show('fast');
+    //   $currentWord.hide('fast');
+    //   $anagramButtons.hide('fast');
+    //   $timer.hide('fast');
+    //   timeRemaining = 5;
+    //   $startGame.show('fast');
+    //
+    //   setRound();
+    //
+    //   console.log(timerIsRunning);
+    //
+    //
+    // });
 
 
 
@@ -227,22 +229,13 @@ $(() => {
     $reset.hide('fast');
     $timer.hide('fast');
     timeRemaining = 5;
+    $startGame.show('fast');
+
     setRound();
 
     console.log(timerIsRunning);
 
 
   });
-
-
-
-
-
-
-
-
-
-
-
 
 });
