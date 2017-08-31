@@ -10,16 +10,16 @@ $(() => {
   Glossary.prototype.randWord = function() {
     return this.words[Math.floor(Math.random() * this.length)];
   };
-  //removes current word from the gloassay of words
-  Glossary.prototype.removeWord = function(word) {
-    const index = this.words.indexOf(word);
-    this.words.splice(index, 1);
+  // //removes current word from the gloassay of words
+  // Glossary.prototype.removeWord = function(word) {
+  //   const index = this.words.indexOf(word);
+  //   this.words.splice(index, 1);
 
-  };
-  //updates glossary of word how many words left
-  Glossary.prototype.updateWordCount = function () {
-    this.length = this.words.length;
-  };
+  // };
+  // //updates glossary of word how many words left
+  // Glossary.prototype.updateWordCount = function () {
+  //   this.length = this.words.length;
+  // };
 
   const glossary = new Glossary([
     'adept', 'aphid', 'signature', 'computer', 'alphabet', 'arena', 'argon',
@@ -179,29 +179,6 @@ $(() => {
 
 
     }
-
-    // $reset.on('click', () => {
-    //   console.log('click');
-    //   newScore = null;
-    //   $score.html('Score');
-    //   clearInterval(timerid);
-    //   $timer.html(parseFloat(0).toFixed(2));
-    //   $winLose.text('');
-    //   $rules.show('fast');
-    //   $currentWord.hide('fast');
-    //   $anagramButtons.hide('fast');
-    //   $timer.hide('fast');
-    //   timeRemaining = 5;
-    //   $startGame.show('fast');
-    //
-    //   setRound();
-    //
-    //   console.log(timerIsRunning);
-    //
-    //
-    // });
-
-
 
   });
 

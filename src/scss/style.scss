@@ -18,10 +18,14 @@
 body {
   background: black;
   color: #fff;
-  font-family: 'Open Sans';
+  font-family: 'Anonymous Pro', monospace;
   max-width: 2000px;
   margin: 100px auto;
 
+}
+
+input, button {
+  font-family: 'Anonymous Pro', monospace;
 }
 
 .wrapper {
@@ -42,11 +46,14 @@ h2 {
   text-align: center;
   color: #00C400;
   margin-top: 75px;
+  font-size: 35px;
 }
 
-#answerButons {
-  max-width:2000px;
+#answerButtons {
   display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin: 0 auto;
 }
 .anagramButton {
   // position: relative;
@@ -55,7 +62,6 @@ h2 {
   border-radius: 2px;
   color: #fff;
   font-size: 20px;
-  width: 15%;
   height: 50px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -63,8 +69,7 @@ h2 {
   margin-bottom: 20px;
   margin-top: 100px;
   display: none;
-  justify-content: center;
-
+  padding: 10px 20px;
 }
 
 
@@ -82,8 +87,6 @@ button:focus {
 
 #timer {
   color: #E63232;
-  font-family: 'Open Sans';
-  // position: relative;
   font-size: 75px;
   padding: 0;
   text-align: center;
@@ -107,12 +110,10 @@ button:focus {
 
 #winLose{
   width: 500px;
-  height:300px;
   text-align: center;
   visibility: hidden;
   font-size: 50px;
-  margin-top:40px;
-  margin-left: 400px;
+  margin: 40px auto;
   border-radius: 5px;
 
 
@@ -158,7 +159,7 @@ button:focus {
 
 #score {
   color: #00C400;
-  font-size: 25px;
+  font-size: 45px;
   margin-bottom: 30px;
 
 }
