@@ -45,7 +45,7 @@ h1 {
 h2 {
   text-align: center;
   color: #00C400;
-  margin-top: 75px;
+  margin-top: 0px;
   font-size: 35px;
 }
 
@@ -91,6 +91,7 @@ button:focus {
   padding: 0;
   text-align: center;
   width: 100%;
+  display:none;
 }
 
 
@@ -129,9 +130,9 @@ button:focus {
   border: 2px solid black;
   border-radius: 2px;
   color: #fff;
-  font-size: 10px;
-  width: 100px;
-  height: 25px;
+  font-size: 14px;
+  width: 125px;
+  height: 50px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   padding:0;
@@ -145,9 +146,9 @@ button:focus {
   border: 2px solid black;
   border-radius: 2px;
   color: #fff;
-  font-size: 10px;
-  width: 100px;
-  height: 25px;
+  font-size: 14px;
+  width: 125px;
+  height: 50px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   float:right;

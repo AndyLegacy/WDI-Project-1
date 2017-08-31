@@ -18,14 +18,15 @@ $(() => {
     'death', 'delph', 'devil', 'evade', 'exode', 'exult', 'farse',
     'fever', 'flesh', 'flock', 'diamond', 'kaleidoscope', 'balloon', 'homer',
     'barbecue', 'lumen', 'lymph', 'phono', 'photo', 'coffee', 'telescope',
-    'rogue', 'restaurant', 'rosin', 'bible', 'bridge', 'screw', 'sense', 'racquet','torpedo', 'weapon',
+    'rogue', 'restaurant', 'rosin', 'bible', 'bridge', 'screw', 'sense', 'racket','torpedo', 'weapon',
     'stomach','tapestry', 'thermometer', 'pyramid', 'pendulum', 'microscope', 'liquid', 'hieroglyph', 'eraser',
     'cappuccino','asphyxiate','expect', 'expected','rhythm', 'rhyme', 'cemetary', 'indict', 'embarass', 'hijinks',
     'ensued','synonym','development','indices','disembogue', 'vernacular','recommend', 'occurred','psychiatrist','definite',
     'illicit', 'fluorescent', 'ennui','phlegm','feign','chliche', 'typhoon','eucalyptus','bugles','pneumonia',
     'pneumatic', 'jubilant','canoe','hullabaloo','coercion', 'aurae',	'odious','idleness','tortoise', 'elude', 'proconsul','simian',
     'tarsier','trailing', 'tiling', 'conquer', 'vanquish', 'subdue', 'annihilate', 'ascend', 'subjugate', 'coxis', 'hernia', 'serratus', 'anterior',
-    'posterior', 'rearward', 'canthus', 'glabella'
+    'posterior', 'rearward', 'canthus', 'glabella', 'mischievous', 'laborious', 'overwrought', 'unceremonious',
+    'unmannerly', 'nefarious','degenerate','profligate', 'spendthrift'
 
   ]);
 
@@ -190,7 +191,6 @@ $(() => {
     $timer.hide('fast');
     timeRemaining = 5;
     $startGame.show('fast');
-
     setRound();
 
     console.log(timerIsRunning);
